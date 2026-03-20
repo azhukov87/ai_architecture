@@ -1,0 +1,18 @@
+{
+    "Simple": {
+        "sys": "You are a helpful assistant.",
+        "user": "Analyze this dataset and give insights:\n\n{data_sample}"
+    },
+    "Optimized": {
+        "sys": "You are a precise and critical data analyst.",
+        "user": "Act as a data analyst.\n\nAnalyze the Titanic dataset below:\n\n{data_sample}\n\nProvide:\n- Summary statistics\n- Key survival patterns\n- Missing values\n- 3 insights\n\nReturn concise bullet points."
+    },
+    "ReAct + Reflection": {
+        "sys": "You are a precise and critical data analyst.",
+        "user": "Act as a senior data analyst using ReAct and self-reflection.\n\nDataset:\n{data_sample}\n\nThought:\n- Understand structure\n- Identify key variables\n- Form hypotheses\n\nAction:\n- Analyze survival by gender, class, age\n- Check missing values\n\nObservation:\n- Extract key findings\n\nSelf-Reflection:\n- What could be wrong?\n- What assumptions exist?\n- What data is missing?\n\nFinal Answer:\n- Top 5 insights\n- Key risks\n- 3 recommendations\n\nConstraints:\n- Be specific\n- Use numbers"
+    },
+    "Meta-Prompt": {
+        "sys": "You are a precise and critical data analyst.",
+        "user": "You are a prompt engineering expert.\n\nImprove the following prompt for deep data analysis:\n\n\"Analyze this dataset and give insights.\"\n\nThen APPLY the improved prompt to this dataset:\n\n{data_sample}\n\nReturn:\n1. Improved prompt\n2. Final analysis"
+    }
+}

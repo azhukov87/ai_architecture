@@ -1,0 +1,36 @@
+Universal Data Analysis Evaluation Rubric
+==========================================
+
+Evaluate every response against these standards, regardless of prompt style.
+
+Score 1–2 (Bad)
+- Vague or generic observations with no specific numbers
+- Patterns stated without percentages or counts (e.g. "women survived more" with no figure)
+- Missing values ignored or only vaguely acknowledged
+- No structure separating observations from conclusions
+- No actionable recommendations grounded in the data
+
+Score 3 (Average)
+- Some specific numbers present (e.g. overall survival rate, one gender or class comparison)
+- At least one column with missing values noted with an approximate count
+- Basic structure visible, but insights are shallow and single-variable only
+- Recommendations are generic (e.g. "clean the data") rather than data-specific
+
+Score 4 (Good)
+- Exact survival percentages for at least two variables (gender AND passenger class)
+- All columns with missing values identified with their counts
+- At least three non-obvious, data-backed insights
+- At least one concrete, specific recommendation (e.g. "impute Age with median", "drop Cabin due to ~77% missing")
+- Clear separation between data observations and analytical conclusions
+
+Score 5 (Excellent)
+- Meets all Score-4 requirements PLUS:
+- At least one multivariate insight combining two variables (e.g. female Class-1 vs. male Class-3 survival)
+- Explicit acknowledgment of at least one analytical limitation or assumption
+- Two or more specific, justified recommendations tied directly to findings
+
+Penalise any response that:
+- Makes claims without numerical evidence from the provided data
+- Overlooks the Age or Cabin missing-value issue
+- Restates the same observation in different words as separate insights
+- Gives next steps that are not grounded in the specific dataset
