@@ -1,36 +1,76 @@
 Universal Data Analysis Evaluation Rubric
-==========================================
+=========================================
 
 Evaluate every response against these standards, regardless of prompt style.
+Use the full 1.0-5.0 range with decimal precision. Do not cluster strong answers at the same score unless they are genuinely equivalent.
 
-Score 1–2 (Bad)
-- Vague or generic observations with no specific numbers
-- Patterns stated without percentages or counts (e.g. "women survived more" with no figure)
-- Missing values ignored or only vaguely acknowledged
-- No structure separating observations from conclusions
-- No actionable recommendations grounded in the data
+Score the response across these three categories, then average them:
 
-Score 3 (Average)
-- Some specific numbers present (e.g. overall survival rate, one gender or class comparison)
-- At least one column with missing values noted with an approximate count
-- Basic structure visible, but insights are shallow and single-variable only
-- Recommendations are generic (e.g. "clean the data") rather than data-specific
+1. Accuracy and Depth of Insights
+- Are the findings numerically grounded in the provided data?
+- Does the response move beyond obvious observations into stronger comparisons or multivariate insights?
+- Does it acknowledge limitations, uncertainty, or assumptions when appropriate?
 
-Score 4 (Good)
-- Exact survival percentages for at least two variables (gender AND passenger class)
-- All columns with missing values identified with their counts
-- At least three non-obvious, data-backed insights
-- At least one concrete, specific recommendation (e.g. "impute Age with median", "drop Cabin due to ~77% missing")
-- Clear separation between data observations and analytical conclusions
+2. Structure and Clarity
+- Is the response well organized, easy to follow, and faithful to the requested output format?
+- Is it concise, non-redundant, and appropriately scoped?
+- If the prompt asked for a specific structure, did the response follow it cleanly?
 
-Score 5 (Excellent)
-- Meets all Score-4 requirements PLUS:
-- At least one multivariate insight combining two variables (e.g. female Class-1 vs. male Class-3 survival)
-- Explicit acknowledgment of at least one analytical limitation or assumption
-- Two or more specific, justified recommendations tied directly to findings
+3. Actionability and Task Completion
+- Does it fully complete the requested task, not just part of it?
+- Are recommendations specific, justified, and tied directly to the findings?
+- If the prompt asked for extra deliverables (for example an improved prompt, reflection, or explicit sections), are they actually useful and complete?
+
+Scoring Guide
+
+Score 1.0-2.4 (Poor)
+- Mostly vague, generic, or weakly supported observations
+- Little or no numerical evidence
+- Missing values ignored or only vaguely mentioned
+- Weak structure or major task-completion failures
+- Recommendations absent or not grounded in the dataset
+
+Score 2.5-3.4 (Fair)
+- Some correct numbers, but analysis is shallow or mostly single-variable
+- Partial treatment of missing values or survival patterns
+- Basic structure is present, but the response is uneven, incomplete, or loosely aligned to the prompt
+- Recommendations are generic or only weakly justified
+
+Score 3.5-4.1 (Good)
+- Solid quantitative analysis with exact counts or percentages for key patterns
+- Covers the main variables and identifies important missing-value issues
+- Organized and understandable, but still missing depth, nuance, or full task completion
+- At least one useful recommendation tied to the data
+
+Score 4.2-4.5 (Very Good)
+- Strong quantitative analysis across multiple important variables
+- Includes at least three data-backed insights and all major missing-value issues
+- Good structure and clear conclusions
+- Mostly completes the requested task, but has one notable weakness such as missing limitations, weak multivariate depth, mild redundancy, or incomplete format adherence
+
+Score 4.6-4.8 (Excellent)
+- Exact, well-supported analysis with strong comparative or multivariate insight
+- Explicitly identifies limitations, uncertainty, or assumptions where relevant
+- Fully completes the requested task with clear structure and specific recommendations
+- May still have a small weakness such as slight repetition, unnecessary verbosity, or one underdeveloped section
+
+Score 4.9-5.0 (Exceptional)
+- Near-complete, numerically precise, and well-prioritized analysis
+- Strong multivariate reasoning, clear limits of interpretation, and high-value recommendations
+- Excellent instruction-following: every requested section is present and useful
+- Concise and non-redundant despite high depth
+
+Important Differentiators Between Experiments
+- Do not reward complexity of prompt style by itself. ReAct, reflection, or meta-prompting only deserve higher scores if they produce better analysis.
+- Reward exact instruction-following. If a prompt asked for concise bullets, a two-part answer, self-reflection, or explicit sections, missing or weak execution should lower the score.
+- Reward efficiency. If two responses reach similar analytical quality, the clearer and less repetitive one should score higher.
+- Reward completeness. A response that covers analysis, limitations, and recommendations should outscore one that only gives insights.
+- For meta-prompt outputs, judge both parts: the improved prompt quality and the final analysis quality.
+- For simple prompts, do not penalize simplicity itself, but do penalize weaker coverage, weaker structure, or less controlled task execution.
 
 Penalise any response that:
 - Makes claims without numerical evidence from the provided data
 - Overlooks the Age or Cabin missing-value issue
 - Restates the same observation in different words as separate insights
+- Adds reasoning scaffolding without adding analytical value
 - Gives next steps that are not grounded in the specific dataset
