@@ -10,6 +10,7 @@ The goal of this module is to demonstrate how structured prompting frameworks li
 
 - **`prompt_comparison.py`**: The core execution engine. It fetches Titanic data, loads templates from `prompts.json`, runs the analysis via Azure OpenAI, and performs automated evaluation.
 - **`prompts.json`**: A centralized repository of prompt templates, externalizing instructions from code for better maintainability.
+- **`evaluation_criteria.txt`**: The multi-category scoring rubric used by the evaluator LLM to ensure objective, consistent, and discriminative scoring.
 - **`RESULTS.md`**: A comprehensive report detailing the performance, scores, and qualitative takeaways for each prompting style.
 - **`prompt2.py`**: A legacy/reference script demonstrating heuristic-based scoring.
 
@@ -24,7 +25,13 @@ The goal of this module is to demonstrate how structured prompting frameworks li
 
 ## 🛠️ Setup & Installation
 
-### 1. Environment Configuration
+### 1. Install Dependencies
+Install the required Python packages from the project root:
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Environment Configuration
 Ensure you have a `.env` file in the root directory with your Azure OpenAI credentials:
 ```env
 AZURE_OPENAI_API_KEY=your_api_key
@@ -46,9 +53,12 @@ The script will output a formatted table comparing the **Quality Score** and **R
 
 ## 📊 Evaluation Framework
 
-Each response is automatically evaluated by a "Scoring LLM" on a scale of **1 to 5** based on three pillars:
-1. **Accuracy and Depth**: Does it find non-obvious patterns?
-2. **Structure and Clarity**: Is the information well-organized?
-3. **Actionability**: Are the insights useful for decision-making?
+Each response is automatically evaluated by a "Scoring LLM" on a scale of **1.0 to 5.0** (with decimal precision) based on three pillars defined in `evaluation_criteria.txt`:
+
+1. **Accuracy and Depth of Insights**: Numerical grounding, multivariate analysis, and acknowledgment of limitations.
+2. **Structure and Clarity**: Organization, concision, and adherence to requested output formats.
+3. **Actionability and Task Completion**: Specificity of recommendations and fulfillment of all prompt-specific deliverables.
+
+The rubric is designed to be highly discriminative, rewarding exact instruction-following and penalizing redundancy or "scaffolding" that doesn't add analytical value.
 
 For a detailed breakdown of the findings, refer to [RESULTS.md](./RESULTS.md).
